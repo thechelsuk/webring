@@ -1,4 +1,4 @@
-title: CHRONICLE
+title: Nuchronic
 description: Dark-mode Hacker News-style feed for the chronically ill indie web.
 url: ""
 baseurl: ""
@@ -22,9 +22,9 @@ header_nav:
     - label: About
       url: /about
     - label: Submit
-      url: https://github.com/thechelsuk/webring/issues/new?template=feed-submission.yml
+      url: https://github.com/thechelsuk/uk.nuchronic/issues/new?template=feed-submission.yml
 footer_nav:
-  copyright: Chronicle
+  copyright: Nuchronic
   notice: The web ring for the chronically ill indie web.
   year: 2026
   links:
