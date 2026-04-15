@@ -4,7 +4,7 @@ title: Terms
 permalink: /terms
 ---
 
-Chronicle is a simple feed-based web ring. We may add, edit, or remove feeds and pages at any time.
+Nuchronic is a simple feed-based web ring. We may add, edit, or remove feeds and pages at any time.
 
 We try to show links and feed information as they appear in public feeds, but we cannot promise that every item will always be correct, current, or available.
 
