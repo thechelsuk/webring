@@ -38,13 +38,11 @@ html {
   height: 18px;
 }
 
-.brand-mark svg {
+.brand-mark img {
   display: block;
   width: 18px;
   height: 18px;
-  fill: rgba(255, 255, 255, 0.14);
-  stroke: rgba(38, 22, 10, 0.72);
-  stroke-width: 1.5;
+  object-fit: contain;
 }
 
 body {

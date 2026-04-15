@@ -1,0 +1,28 @@
+{
+  "name": "Nuchronic",
+  "short_name": "Nuchronic",
+  "description": "Dark-mode Hacker News-style feed for the chronically ill indie web.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0b0d11",
+  "theme_color": "#ff6600",
+  "icons": [
+    {
+      "src": "/assets/icons/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/assets/icons/icon-mask.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/assets/icons/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

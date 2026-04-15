@@ -5,6 +5,8 @@ baseurl: ""
 timezone: UTC
 markdown: kramdown
 permalink: /item/:slug/
+include:
+  - .well-known
 plugins:
   - jekyll-paginate
   - jekyll-feed
