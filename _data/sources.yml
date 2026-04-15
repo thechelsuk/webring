@@ -1,4 +1,8 @@
 sources:
   - id: thechelsuk
     feed_url: https://thechels.uk/feed.xml
+  - id: ladybugthoughts13
+    feed_url: https://ladybugthoughts13.blogspot.com/feeds/posts/default
+  - id: the-ensemblist
+    feed_url: https://the-ensemblist.uk/feed.xml
 
