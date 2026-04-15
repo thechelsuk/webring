@@ -9,7 +9,6 @@ include:
   - .well-known
 plugins:
   - jekyll-paginate
-  - jekyll-feed
   - jekyll-sitemap
 feed:
   path: feed.xml

@@ -6,7 +6,6 @@ gem "jekyll-sass-converter", "< 3.0"
 
 group :jekyll_plugins do
 	gem "jekyll-paginate", "~> 1.1"
-	gem "jekyll-feed", "~> 0.17"
 	gem "jekyll-sitemap", "~> 1.4"
 end
 
