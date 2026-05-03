@@ -22,12 +22,14 @@ rel_me:
   - https://web.brid.gy/nuchronic.uk
 header_nav:
   links:
-    - label: Home
+    - label: New
       url: /
+    - label: Top
+      url: /top/
     - label: Feed
       url: /feed.xml
     - label: About
-      url: /about
+      url: /about/
     - label: Submit
       url: https://github.com/thechelsuk/uk.nuchronic/issues/new?template=feed-submission.yml
 footer_nav:

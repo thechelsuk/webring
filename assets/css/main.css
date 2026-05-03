@@ -204,12 +204,6 @@ code {
   letter-spacing: 0.01em;
 }
 
-.story-title-row {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-}
-
 .story-title a {
   color: var(--text);
 }
@@ -226,10 +220,15 @@ code {
 }
 
 .story-meta,
-.entry-meta {
+.entry-meta,
+.entry-syndication {
   margin: 0;
   color: var(--text-dim);
   font-size: 0.75rem;
+}
+
+.entry-syndication {
+  margin-top: 8px;
 }
 
 .story-meta {
@@ -243,6 +242,18 @@ code {
 .story-author,
 .meta-separator {
   flex: none;
+}
+
+.story-byline {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.story-at {
+  flex: none;
+  color: var(--text-faint);
 }
 
 .story-link-group {
@@ -259,6 +270,10 @@ code {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.story-source-inline {
+  flex: 0 1 auto;
 }
 
 .story-meta a,
@@ -386,10 +401,15 @@ code {
 }
 
 .entry-mentions {
-  max-width: 68ch;
+  max-width: none;
   margin-top: 28px;
   padding-top: 22px;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.entry-mentions-empty {
+  margin: 10px 0 0;
+  color: var(--text-dim);
 }
 
 .entry-section-title,
@@ -423,22 +443,27 @@ code {
 
 .mention-list {
   display: grid;
-  gap: 12px;
+  gap: 0;
 }
 
 .mention-card {
-  padding: 12px 14px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
+  padding: 14px 2px 14px 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0;
+}
+
+.mention-list > .mention-card:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .mention-list-compact {
-  gap: 8px;
+  gap: 0;
 }
 
 .mention-card-compact {
-  padding: 10px 12px;
+  padding: 12px 2px 12px 0;
 }
 
 .mention-meta,
@@ -448,13 +473,26 @@ code {
   font-size: 0.78rem;
 }
 
+.mention-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px;
+}
+
 .mention-content {
-  margin: 10px 0 0;
-  color: var(--text);
+  margin: 8px 0 0;
+  color: var(--text-dim);
+  font-size: 0.94rem;
+  line-height: 1.55;
 }
 
 .mention-source {
   margin-top: 10px;
+}
+
+.mention-link {
+  color: var(--accent-soft);
 }
 
 .mention-people {
@@ -497,7 +535,7 @@ code {
   }
 
   .story-meta {
-    gap: 0;
+    gap: 2px;
   }
 
   .pagination {
@@ -521,11 +559,6 @@ code {
 }
 
 @media (max-width: 540px) {
-  .story-meta {
-    flex-wrap: wrap;
-    row-gap: 2px;
-  }
-
   .story-link-group {
     flex-basis: 100%;
     margin-top: 1px;

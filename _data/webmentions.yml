@@ -664,9 +664,18 @@ daily-daily-rundown-for-2026-05-03-ca35e16dda:
   mentions: []
 release-cf-worker-x-redirect-version-v1-0-1-debdf9801f:
   target: https://nuchronic.uk/item/release-cf-worker-x-redirect-version-v1-0-1-debdf9801f/
-  count: 0
-  types: {}
-  replies: []
+  count: 1
+  types:
+    in-reply-to: 1
+  replies:
+  - author_name: thechels.uk
+    author_url: https://thechels.uk/
+    author_photo: ''
+    url: https://thechels.uk/announcing-nuchronic.uk
+    published: 2026-05-03 12:15:00+00:00
+    property: in-reply-to
+    content_text: Nice to see this worker release surfaced here. The redirect helper
+      is live and working well.
   likes: []
   reposts: []
   mentions: []

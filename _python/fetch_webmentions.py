@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from datetime import date as date_type
+from datetime import datetime, timezone
 from html import unescape
 import json
 from pathlib import Path
@@ -14,9 +16,12 @@ ROOT = Path(__file__).resolve().parent.parent
 CONFIG_FILE = ROOT / "_config.yml"
 POSTS_DIR = ROOT / "_posts"
 OUTPUT_FILE = ROOT / "_data" / "webmentions.yml"
+TOP_POSTS_FILE = ROOT / "_data" / "top_posts.yml"
+OVERRIDES_FILE = ROOT / "_data" / "webmention_overrides.yml"
 COUNT_API = "https://webmention.io/api/count"
 MENTIONS_API = "https://webmention.io/api/mentions.jf2"
 USER_AGENT = "nuchronic-webmention-sync/1.0"
+TOP_POST_LIMIT = 30
 SLUG_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}-(.+)$")
 TAG_PATTERN = re.compile(r"<[^>]+>")
 
@@ -34,6 +39,43 @@ def derive_slug(post_path: Path) -> str:
     if match:
         return match.group(1)
     return post_path.stem
+
+
+def read_front_matter(post_path: Path) -> dict[str, object]:
+    text = post_path.read_text(encoding="utf-8")
+    lines = text.splitlines()
+    if not lines or lines[0].strip() != "---":
+        return {}
+
+    for index in range(1, len(lines)):
+        if lines[index].strip() == "---":
+            payload = yaml.safe_load("\n".join(lines[1:index])) or {}
+            return payload if isinstance(payload, dict) else {}
+
+    return {}
+
+
+def parse_post_timestamp(value: object) -> float:
+    if isinstance(value, datetime):
+        parsed = value
+    elif isinstance(value, date_type):
+        parsed = datetime(value.year, value.month, value.day, tzinfo=timezone.utc)
+    else:
+        raw_value = str(value or "").strip()
+        parsed = None
+        for fmt in ("%Y-%m-%d %H:%M:%S %z", "%Y-%m-%d %H:%M:%S", "%Y-%m-%d"):
+            try:
+                parsed = datetime.strptime(raw_value, fmt)
+                break
+            except ValueError:
+                continue
+
+        if parsed is None:
+            return 0.0
+
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=timezone.utc)
+    return parsed.astimezone(timezone.utc).timestamp()
 
 
 def fetch_json(base_url: str, params: dict[str, object]) -> dict[str, object]:
@@ -115,6 +157,13 @@ def load_existing_data() -> dict[str, object]:
     return payload if isinstance(payload, dict) else {}
 
 
+def load_override_data() -> dict[str, object]:
+    if not OVERRIDES_FILE.exists():
+        return {}
+    payload = yaml.safe_load(OVERRIDES_FILE.read_text(encoding="utf-8")) or {}
+    return payload if isinstance(payload, dict) else {}
+
+
 def build_default_record(target_url: str) -> dict[str, object]:
     return {
         "target": target_url,
@@ -163,20 +212,51 @@ def build_record(target_url: str) -> dict[str, object]:
     return record
 
 
-def write_output(payload: dict[str, object]) -> None:
-    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
+def build_top_posts(post_records: list[dict[str, object]], mention_records: dict[str, object]) -> list[dict[str, object]]:
+    ranked_posts: list[dict[str, object]] = []
+
+    for post_record in post_records:
+        slug = str(post_record["slug"])
+        mention_record = mention_records.get(slug, {})
+        count = 0
+        if isinstance(mention_record, dict):
+            count = int(mention_record.get("count", 0) or 0)
+
+        ranked_posts.append(
+            {
+                "slug": slug,
+                "count": count,
+                "sort_timestamp": float(post_record.get("sort_timestamp", 0.0) or 0.0),
+            }
+        )
+
+    ranked_posts.sort(key=lambda item: (-int(item["count"]), -float(item["sort_timestamp"]), str(item["slug"])))
+    return [{"slug": item["slug"], "count": item["count"]} for item in ranked_posts[:TOP_POST_LIMIT]]
+
+
+def write_output(path: Path, payload: object) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
     content = yaml.safe_dump(payload, sort_keys=False, allow_unicode=True).strip()
-    OUTPUT_FILE.write_text(f"{content}\n", encoding="utf-8")
+    path.write_text(f"{content}\n", encoding="utf-8")
 
 
 def main() -> int:
     site_url = load_site_url()
     existing_data = load_existing_data()
+    override_data = load_override_data()
     results: dict[str, object] = {}
+    post_records: list[dict[str, object]] = []
 
     for post_path in sorted(POSTS_DIR.glob("*.md")):
         slug = derive_slug(post_path)
         target_url = f"{site_url}/item/{slug}/"
+        front_matter = read_front_matter(post_path)
+        post_records.append(
+            {
+                "slug": slug,
+                "sort_timestamp": parse_post_timestamp(front_matter.get("date")),
+            }
+        )
 
         try:
             results[slug] = build_record(target_url)
@@ -188,9 +268,16 @@ def main() -> int:
                 print(f"Warning: failed to update {slug}: {exc}. Falling back to an empty record.")
                 results[slug] = build_default_record(target_url)
 
-    write_output(results)
+        override_record = override_data.get(slug)
+        if isinstance(override_record, dict):
+            results[slug] = override_record
+
+    top_posts = build_top_posts(post_records, results)
+    write_output(OUTPUT_FILE, results)
+    write_output(TOP_POSTS_FILE, top_posts)
     print(f"Webmention sync complete: wrote {len(results)} record(s).")
     return 0
+
 
 
 if __name__ == "__main__":

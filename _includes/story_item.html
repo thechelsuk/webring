@@ -1,35 +1,40 @@
 {% assign mention = site.data.webmentions[include.post.slug] %}
 {% assign mention_count = mention.count | default: 0 %}
+{% if include.post.link %}
+{% assign source_host = include.post.link | replace_first: 'https://', '' | replace_first: 'http://', '' |
+replace_first: 'www.', '' | split: '/' | first | split: '?' | first | split: '#' | first %}
+{% endif %}
 <li class="story">
     <div class="story-rank">{{ include.rank }}.</div>
     <div class="story-body">
-        <div class="story-title-row">
-            <h2 class="story-title">
-                {% if include.post.link %}
-                <a href="{{ include.post.link }}">{{ include.post.title }}</a>
-                {% else %}
-                <a href="{{ include.post.url | relative_url }}">{{ include.post.title }}</a>
-                {% endif %}
-            </h2>
+        <h2 class="story-title">
             {% if include.post.link %}
-            <a class="story-permalink" href="{{ include.post.url | relative_url }}"
-                aria-label="Open the item page for {{ include.post.title }}">-&gt;</a>
+            <a href="{{ include.post.link }}">{{ include.post.title }}</a>
+            {% else %}
+            <a href="{{ include.post.url | relative_url }}">{{ include.post.title }}</a>
             {% endif %}
-        </div>
+        </h2>
         <p class="story-meta">
             <time class="story-date"
                 datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: "%b %-d, %Y" }}</time>
             <span class="meta-separator">·</span>
-            <span class="story-author">by {{ include.post.author | default: "anonymous" }}</span>
-            <span class="meta-separator">·</span>
-            <a class="story-discuss" href="{{ include.post.url | relative_url }}">{{ mention_count }} mention{% unless
+            <a class="story-discuss" href="{{ include.post.url | relative_url }}">{{ mention_count }} mention{%
+                unless
                 mention_count == 1 %}s{% endunless %}</a>
             {% if include.post.link %}
-            <span class="story-link-group">
-                <span class="meta-separator">·</span>
-                <a class="story-url" href="{{ include.post.link }}">{{ include.post.link }}</a>
-            </span>
+            <span class="meta-separator">·</span>
+            <a class="story-permalink" href="{{ include.post.url | relative_url }}"
+                aria-label="Open the item page for {{ include.post.title }}">more →</a>
             {% endif %}
+            <span class="meta-separator">·</span>
+            <span class="story-byline">
+                <span class="story-author">by {{ include.post.author | default: "anonymous" }}</span>
+                {% if include.post.link %}
+                <span class="story-at">@</span>
+                <a class="story-url story-source-inline" href="{{ include.post.link }}"
+                    title="{{ include.post.link }}">{{ source_host }}</a>
+                {% endif %}
+            </span>
         </p>
     </div>
 </li>

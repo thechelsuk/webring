@@ -1,0 +1,28 @@
+---
+layout: default
+---
+{% assign top_posts = site.data.top_posts | default: empty %}
+
+{% if top_posts and top_posts.size > 0 %}
+<ol class="stories" start="1">
+    {% for top_item in top_posts %}
+    {% assign top_post = site.posts | where: "slug", top_item.slug | first %}
+    {% if top_post %}
+    {% assign story_rank = forloop.index %}
+    {% include story_item.html post=top_post rank=story_rank %}
+    {% endif %}
+    {% endfor %}
+</ol>
+{% elsif site.posts and site.posts.size > 0 %}
+<ol class="stories" start="1">
+    {% for post in site.posts limit: 30 %}
+    {% assign story_rank = forloop.index %}
+    {% include story_item.html post=post rank=story_rank %}
+    {% endfor %}
+</ol>
+{% else %}
+<section class="empty-state">
+    <h1>No top posts yet.</h1>
+    <p>Posts with the most webmentions will show up here once replies, reactions, and reposts start landing.</p>
+</section>
+{% endif %}

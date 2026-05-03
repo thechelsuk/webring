@@ -4,9 +4,30 @@ layout: default
 {% capture body %}{{ content | strip }}{% endcapture %}
 {% assign item_url = page.url | absolute_url %}
 {% assign mention = site.data.webmentions[page.slug] %}
+{% assign syndication_index = site.data.syndication_links | default: empty %}
+{% assign syndication = syndication_index[page.slug] %}
+{% assign mention_count = mention.count | default: 0 %}
+{% assign bluesky_url = "" %}
+{% assign mastodon_url = "" %}
+{% if page.link %}
+{% assign source_host = page.link | replace_first: 'https://', '' | replace_first: 'http://', '' | replace_first:
+'www.', '' | split: '/' | first | split: '?' | first | split: '#' | first %}
+{% endif %}
+{% if syndication %}
+{% if syndication.bluesky and syndication.bluesky.url %}
+{% assign bluesky_url = syndication.bluesky.url %}
+{% endif %}
+{% if syndication.mastodon and syndication.mastodon.url %}
+{% assign mastodon_url = syndication.mastodon.url %}
+{% endif %}
+{% endif %}
 
 <article class="entry-card h-entry">
     <a class="u-url visually-hidden" href="{{ item_url }}">{{ item_url }}</a>
+    <div hidden>
+        <a href="https://brid.gy/publish/bluesky"></a>
+        <a href="https://brid.gy/publish/mastodon"></a>
+    </div>
     <span class="p-author h-card visually-hidden">
         <a class="p-name u-url" href="{{ '/' | absolute_url }}">{{ site.title }}</a>
         <img class="u-photo" src="{{ '/assets/icons/apple-touch-icon.png' | absolute_url }}" alt="{{ site.title }}">
@@ -26,19 +47,33 @@ layout: default
         by {{ page.author | default: "anonymous" }}
         <span class="meta-separator">·</span>
         <a href="{{ page.url | relative_url }}">permalink</a>
+        {% if page.link %}
+        <span class="meta-separator">·</span>
+        source <a href="{{ page.link }}" title="{{ page.link }}">{{ source_host }}</a>
+        {% endif %}
     </p>
-    {% if page.link %}
-    <p class="entry-link-label">Source</p>
-    <p class="entry-link"><a href="{{ page.link }}">{{ page.link }}</a></p>
+    {% if bluesky_url != "" or mastodon_url != "" %}
+    <p class="entry-syndication">
+        Also on
+        {% if bluesky_url != "" %}
+        <a class="u-syndication" href="{{ bluesky_url }}">Bluesky</a>
+        {% endif %}
+        {% if bluesky_url != "" and mastodon_url != "" %}
+        <span class="meta-separator">·</span>
+        {% endif %}
+        {% if mastodon_url != "" %}
+        <a class="u-syndication" href="{{ mastodon_url }}">Mastodon</a>
+        {% endif %}
+    </p>
     {% endif %}
     {% if body != "" %}
     <div class="entry-body e-content">
         {{ content }}
     </div>
     {% endif %}
-    {% if mention and mention.count > 0 %}
+    {% if mention_count > 0 %}
     <section class="entry-mentions">
-        <h2 class="entry-section-title">{{ mention.count }} mention{% unless mention.count == 1 %}s{% endunless %}</h2>
+        <h2 class="entry-section-title">{{ mention_count }} mention{% unless mention_count == 1 %}s{% endunless %}</h2>
 
         {% if mention.replies and mention.replies.size > 0 %}
         <section class="mention-group">
@@ -56,12 +91,13 @@ layout: default
                         <span class="meta-separator">·</span>
                         <time datetime="{{ reply.published }}">{{ reply.published | date: "%B %-d, %Y" }}</time>
                         {% endif %}
+                        {% if reply.url %}
+                        <span class="meta-separator">·</span>
+                        <a class="mention-link" href="{{ reply.url }}">Open mention</a>
+                        {% endif %}
                     </p>
                     {% if reply.content_text %}
                     <p class="mention-content">{{ reply.content_text | escape | newline_to_br }}</p>
-                    {% endif %}
-                    {% if reply.url %}
-                    <p class="mention-source"><a href="{{ reply.url }}">Open mention</a></p>
                     {% endif %}
                 </li>
                 {% endfor %}
@@ -125,6 +161,11 @@ layout: default
             </ul>
         </section>
         {% endif %}
+    </section>
+    {% else %}
+    <section class="entry-mentions">
+        <h2 class="entry-section-title">No webmentions yet</h2>
+        <p class="entry-mentions-empty">Replies, likes, reposts, and mentions will show up here when they arrive.</p>
     </section>
     {% endif %}
 </article>

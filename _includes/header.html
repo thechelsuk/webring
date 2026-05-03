@@ -1,4 +1,5 @@
 <header class="topbar">
+    {% assign current_page_url = page.url | default: '/' %}
     <div class="brand-lockup">
         <a class="brand-mark" href="{{ '/' | relative_url }}" aria-label="Go to the homepage">
             <img src="{{ '/assets/Blue.svg' | relative_url }}" alt="" aria-hidden="true" width="18" height="18">
@@ -8,7 +9,7 @@
     {% if site.header_nav.links and site.header_nav.links.size > 0 %}
     <nav class="topnav" aria-label="Primary navigation">
         {% for item in site.header_nav.links %}
-        <a class="{% if item.url == '/' and page.layout == 'home' %}is-active{% endif %}"
+        <a class="{% unless item.url contains '://' %}{% if item.url == current_page_url %}is-active{% endif %}{% endunless %}"
             href="{% if item.url contains '://' %}{{ item.url }}{% else %}{{ item.url | relative_url }}{% endif %}">{{ item.label }}</a>
         {% unless forloop.last %}
         <span class="nav-separator">|</span>
