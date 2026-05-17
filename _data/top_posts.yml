@@ -8,8 +8,6 @@
   count: 0
 - slug: daily-daily-rundown-for-2026-05-17-7dacdb8802
   count: 0
-- slug: release-cheltenham-open-data-version-newsletter-25965128157-f6a2e8e881
-  count: 0
 - slug: release-cheltenham-open-data-version-newsletter-25965335933-7dc7e64838
   count: 0
 - slug: ucb-radio-me-cfs-interview-with-dr-charles-shepherd-f8dcdb51a0
@@ -57,4 +55,6 @@
 - slug: new-review-evaluates-safety-and-effectiveness-of-medication-across-multiple-cond-77ae2cdc01
   count: 0
 - slug: the-equality-act-and-me-cfs-ask-an-expert-with-david-walton-ebfec12dbc
+  count: 0
+- slug: i-made-my-eleventy-build-5-faster-with-five-changes-5843021baf
   count: 0
