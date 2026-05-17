@@ -995,9 +995,22 @@ posts:
     bridgy:
       target_url: https://fed.brid.gy/
       resolved_url: https://fed.brid.gy/
-      updated_at: '2026-05-17T12:34:54+00:00'
+      updated_at: '2026-05-17T20:26:32+00:00'
       endpoint: https://fed.brid.gy/webmention
       response_status: 202
       status: accepted
-      accepted_at: '2026-05-17T12:34:55+00:00'
-      verified_targets: []
+      accepted_at: '2026-05-17T20:26:32+00:00'
+      verified_targets:
+      - ap
+  inflamed-blood-vessels-appear-to-be-causing-brain-fog-in-long-covid-0e4c14fd4f:
+    source_url: https://nuchronic.uk/item/inflamed-blood-vessels-appear-to-be-causing-brain-fog-in-long-covid-0e4c14fd4f/
+    bridgy:
+      target_url: https://fed.brid.gy/
+      resolved_url: https://fed.brid.gy/
+      updated_at: '2026-05-17T20:26:30+00:00'
+      endpoint: https://fed.brid.gy/webmention
+      response_status: 202
+      status: accepted
+      accepted_at: '2026-05-17T20:26:30+00:00'
+      verified_targets:
+      - ap

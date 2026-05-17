@@ -56,23 +56,27 @@ targets:
   : resolved_url: https://meassociation.org.uk/2026/05/me-association-co-signs-long-covid-advocacys-open-letter-to-the-royal-college-of-psychiatrists/
     reason: no-endpoint
     checked_at: '2026-05-16T13:40:24+00:00'
-  https://www.youtube.com/watch?v=QjhojO2cEYQ:
-    resolved_url: https://www.youtube.com/watch?v=QjhojO2cEYQ
-    reason: no-endpoint
-    checked_at: '2026-05-17T13:57:47+00:00'
-  ? https://meassociation.org.uk/2026/05/inspired-by-his-brother-dorset-man-to-run-100km-jurassic-coast-ultra-challenge-for-me/
-  : resolved_url: https://meassociation.org.uk/2026/05/inspired-by-his-brother-dorset-man-to-run-100km-jurassic-coast-ultra-challenge-for-me/
-    reason: no-endpoint
-    checked_at: '2026-05-17T13:57:48+00:00'
-  https://meassociation.org.uk/2026/05/dr-charles-shepherd-interviewed-for-me-awareness-week-on-ucb-radio-listen-in/:
-    resolved_url: https://meassociation.org.uk/2026/05/dr-charles-shepherd-interviewed-for-me-awareness-week-on-ucb-radio-listen-in/
-    reason: no-endpoint
-    checked_at: '2026-05-17T13:57:49+00:00'
-  https://www.healthrising.org/blog/2026/05/13/precision-life-me-cfs-long-covid-jigsaw-puzzle/:
-    resolved_url: https://www.healthrising.org/blog/2026/05/13/precision-life-me-cfs-long-covid-jigsaw-puzzle/
-    reason: no-endpoint
-    checked_at: '2026-05-17T13:57:50+00:00'
   https://trialbyerror.org/2026/05/12/more-on-long-covid-panel-at-psychiatrists-gathering/:
     resolved_url: https://trialbyerror.org/2026/05/12/more-on-long-covid-panel-at-psychiatrists-gathering/
     reason: no-endpoint
     checked_at: '2026-05-17T13:57:51+00:00'
+  https://www.healthrising.org/blog/2026/05/17/blood-vessel-brain-fog-long-covid/:
+    resolved_url: https://www.healthrising.org/blog/2026/05/17/blood-vessel-brain-fog-long-covid/
+    reason: no-endpoint
+    checked_at: '2026-05-17T20:26:31+00:00'
+  https://www.youtube.com/watch?v=QjhojO2cEYQ:
+    resolved_url: https://www.youtube.com/watch?v=QjhojO2cEYQ
+    reason: no-endpoint
+    checked_at: '2026-05-17T20:26:33+00:00'
+  ? https://meassociation.org.uk/2026/05/inspired-by-his-brother-dorset-man-to-run-100km-jurassic-coast-ultra-challenge-for-me/
+  : resolved_url: https://meassociation.org.uk/2026/05/inspired-by-his-brother-dorset-man-to-run-100km-jurassic-coast-ultra-challenge-for-me/
+    reason: no-endpoint
+    checked_at: '2026-05-17T20:26:34+00:00'
+  https://meassociation.org.uk/2026/05/dr-charles-shepherd-interviewed-for-me-awareness-week-on-ucb-radio-listen-in/:
+    resolved_url: https://meassociation.org.uk/2026/05/dr-charles-shepherd-interviewed-for-me-awareness-week-on-ucb-radio-listen-in/
+    reason: no-endpoint
+    checked_at: '2026-05-17T20:26:35+00:00'
+  https://www.healthrising.org/blog/2026/05/13/precision-life-me-cfs-long-covid-jigsaw-puzzle/:
+    resolved_url: https://www.healthrising.org/blog/2026/05/13/precision-life-me-cfs-long-covid-jigsaw-puzzle/
+    reason: no-endpoint
+    checked_at: '2026-05-17T20:26:36+00:00'
