@@ -187,19 +187,19 @@ targets:
   https://www.youtube.com/watch?v=QjhojO2cEYQ:
     resolved_url: https://www.youtube.com/watch?v=QjhojO2cEYQ
     endpoint: ''
-    checked_at: '2026-05-17T20:26:33+00:00'
+    checked_at: '2026-05-18T07:44:37+00:00'
   ? https://meassociation.org.uk/2026/05/inspired-by-his-brother-dorset-man-to-run-100km-jurassic-coast-ultra-challenge-for-me/
   : resolved_url: https://meassociation.org.uk/2026/05/inspired-by-his-brother-dorset-man-to-run-100km-jurassic-coast-ultra-challenge-for-me/
     endpoint: ''
-    checked_at: '2026-05-17T20:26:34+00:00'
+    checked_at: '2026-05-18T07:44:40+00:00'
   https://meassociation.org.uk/2026/05/dr-charles-shepherd-interviewed-for-me-awareness-week-on-ucb-radio-listen-in/:
     resolved_url: https://meassociation.org.uk/2026/05/dr-charles-shepherd-interviewed-for-me-awareness-week-on-ucb-radio-listen-in/
     endpoint: ''
-    checked_at: '2026-05-17T20:26:35+00:00'
+    checked_at: '2026-05-18T07:44:44+00:00'
   https://www.healthrising.org/blog/2026/05/13/precision-life-me-cfs-long-covid-jigsaw-puzzle/:
     resolved_url: https://www.healthrising.org/blog/2026/05/13/precision-life-me-cfs-long-covid-jigsaw-puzzle/
     endpoint: ''
-    checked_at: '2026-05-17T20:26:36+00:00'
+    checked_at: '2026-05-18T07:44:45+00:00'
   https://trialbyerror.org/2026/05/12/more-on-long-covid-panel-at-psychiatrists-gathering/:
     resolved_url: https://trialbyerror.org/2026/05/12/more-on-long-covid-panel-at-psychiatrists-gathering/
     endpoint: ''
@@ -215,4 +215,8 @@ targets:
   https://www.healthrising.org/blog/2026/05/17/blood-vessel-brain-fog-long-covid/:
     resolved_url: https://www.healthrising.org/blog/2026/05/17/blood-vessel-brain-fog-long-covid/
     endpoint: ''
-    checked_at: '2026-05-17T20:26:31+00:00'
+    checked_at: '2026-05-18T07:44:35+00:00'
+  https://thechels.uk/2026-05-18-daily-rundown:
+    resolved_url: https://thechels.uk/2026-05-18-daily-rundown
+    endpoint: https://webmention.io/thechels.uk/webmention
+    checked_at: '2026-05-18T07:44:33+00:00'

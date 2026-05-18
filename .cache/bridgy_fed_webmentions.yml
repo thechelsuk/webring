@@ -998,10 +998,12 @@ posts:
       updated_at: '2026-05-17T20:26:32+00:00'
       endpoint: https://fed.brid.gy/webmention
       response_status: 202
-      status: accepted
+      status: success
       accepted_at: '2026-05-17T20:26:32+00:00'
       verified_targets:
       - ap
+      - bsky
+      verified_at: '2026-05-18T07:44:37+00:00'
   inflamed-blood-vessels-appear-to-be-causing-brain-fog-in-long-covid-0e4c14fd4f:
     source_url: https://nuchronic.uk/item/inflamed-blood-vessels-appear-to-be-causing-brain-fog-in-long-covid-0e4c14fd4f/
     bridgy:
@@ -1010,7 +1012,21 @@ posts:
       updated_at: '2026-05-17T20:26:30+00:00'
       endpoint: https://fed.brid.gy/webmention
       response_status: 202
-      status: accepted
+      status: success
       accepted_at: '2026-05-17T20:26:30+00:00'
+      verified_targets:
+      - ap
+      - bsky
+      verified_at: '2026-05-18T07:44:34+00:00'
+  daily-daily-rundown-for-2026-05-18-0ecf8fedfb:
+    source_url: https://nuchronic.uk/item/daily-daily-rundown-for-2026-05-18-0ecf8fedfb/
+    bridgy:
+      target_url: https://fed.brid.gy/
+      resolved_url: https://fed.brid.gy/
+      updated_at: '2026-05-18T07:44:33+00:00'
+      endpoint: https://fed.brid.gy/webmention
+      response_status: 202
+      status: accepted
+      accepted_at: '2026-05-18T07:44:33+00:00'
       verified_targets:
       - ap

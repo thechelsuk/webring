@@ -635,7 +635,7 @@ posts:
       https://www.healthrising.org/blog/2026/05/13/precision-life-me-cfs-long-covid-jigsaw-puzzle/:
         target_url: https://www.healthrising.org/blog/2026/05/13/precision-life-me-cfs-long-covid-jigsaw-puzzle/
         resolved_url: https://www.healthrising.org/blog/2026/05/13/precision-life-me-cfs-long-covid-jigsaw-puzzle/
-        updated_at: '2026-05-17T20:26:36+00:00'
+        updated_at: '2026-05-18T07:44:45+00:00'
         source_format_version: 2
         status: skipped
         reason: no-endpoint
@@ -681,7 +681,7 @@ posts:
       https://meassociation.org.uk/2026/05/dr-charles-shepherd-interviewed-for-me-awareness-week-on-ucb-radio-listen-in/:
         target_url: https://meassociation.org.uk/2026/05/dr-charles-shepherd-interviewed-for-me-awareness-week-on-ucb-radio-listen-in/
         resolved_url: https://meassociation.org.uk/2026/05/dr-charles-shepherd-interviewed-for-me-awareness-week-on-ucb-radio-listen-in/
-        updated_at: '2026-05-17T20:26:35+00:00'
+        updated_at: '2026-05-18T07:44:44+00:00'
         source_format_version: 2
         status: skipped
         reason: no-endpoint
@@ -691,7 +691,7 @@ posts:
       ? https://meassociation.org.uk/2026/05/inspired-by-his-brother-dorset-man-to-run-100km-jurassic-coast-ultra-challenge-for-me/
       : target_url: https://meassociation.org.uk/2026/05/inspired-by-his-brother-dorset-man-to-run-100km-jurassic-coast-ultra-challenge-for-me/
         resolved_url: https://meassociation.org.uk/2026/05/inspired-by-his-brother-dorset-man-to-run-100km-jurassic-coast-ultra-challenge-for-me/
-        updated_at: '2026-05-17T20:26:34+00:00'
+        updated_at: '2026-05-18T07:44:40+00:00'
         source_format_version: 2
         status: skipped
         reason: no-endpoint
@@ -761,7 +761,7 @@ posts:
       https://www.youtube.com/watch?v=QjhojO2cEYQ:
         target_url: https://www.youtube.com/watch?v=QjhojO2cEYQ
         resolved_url: https://www.youtube.com/watch?v=QjhojO2cEYQ
-        updated_at: '2026-05-17T20:26:33+00:00'
+        updated_at: '2026-05-18T07:44:37+00:00'
         source_format_version: 2
         status: skipped
         reason: no-endpoint
@@ -831,7 +831,19 @@ posts:
       https://www.healthrising.org/blog/2026/05/17/blood-vessel-brain-fog-long-covid/:
         target_url: https://www.healthrising.org/blog/2026/05/17/blood-vessel-brain-fog-long-covid/
         resolved_url: https://www.healthrising.org/blog/2026/05/17/blood-vessel-brain-fog-long-covid/
-        updated_at: '2026-05-17T20:26:31+00:00'
+        updated_at: '2026-05-18T07:44:35+00:00'
         source_format_version: 2
         status: skipped
         reason: no-endpoint
+  daily-daily-rundown-for-2026-05-18-0ecf8fedfb:
+    source_url: https://nuchronic.uk/item/daily-daily-rundown-for-2026-05-18-0ecf8fedfb/
+    targets:
+      https://thechels.uk/2026-05-18-daily-rundown:
+        target_url: https://thechels.uk/2026-05-18-daily-rundown
+        resolved_url: https://thechels.uk/2026-05-18-daily-rundown
+        updated_at: '2026-05-18T07:44:33+00:00'
+        source_format_version: 2
+        endpoint: https://webmention.io/thechels.uk/webmention
+        status: success
+        sent_at: '2026-05-18T07:44:33+00:00'
+        response_status: 201
